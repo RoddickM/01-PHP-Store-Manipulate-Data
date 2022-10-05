@@ -53,8 +53,20 @@
             
             $average_age = $culm_var / count($name_and_age);
             echo "Average age is: " .round($average_age, 1);
+             
+            echo "<br>";
+            echo "<br>";
 
-            
+            echo "<p>People over 17:</p>";
+            for($i = 0; $i < count($name_and_age); $i++) {
+                $student_age = $name_and_age[$i]['Age'];
+                if ($student_age > 17) {
+                    echo 'NAME: '.$name_and_age[$i]['Name'].' | OVER 17?: TRUE <br>';
+                }
+                else{
+                    echo 'NAME: '.$name_and_age[$i]['Name'].' | OVER 17?: FALSE <br>';
+                }
+            }
         ?>
 
     </body>
