@@ -29,8 +29,9 @@
             $key_values = array_column($name_and_age, 'Name');
             array_multisort($key_values, SORT_ASC, $name_and_age);
 
-            foreach($name_and_age as $name_sorted)
-            echo "&bull;", "NAME: ".implode('    |    AGE: ', $name_sorted) ."<br>";
+            foreach($name_and_age as $name_sorted) {
+                echo "&bull;", "NAME: ".implode('    |    AGE: ', $name_sorted) ."<br>";
+            }
 
             echo "<br>";
 
@@ -38,8 +39,23 @@
             $key_values = array_column($name_and_age, 'Age');
             array_multisort($key_values, SORT_ASC, $name_and_age);
 
-            foreach($name_and_age as $name_sorted)
-            echo "&bull;", "NAME: ".implode('   |   AGE: ', $name_sorted) ."<br>";
+            foreach($name_and_age as $age_sorted) {
+                echo "&bull;", "NAME: ".implode('   |   AGE: ', $age_sorted) ."<br>";
+            }
+
+            $culm_var = 0;
+            $name_and_age_count = count($name_and_age);
+
+            echo "<br>";
+
+            for($i =2; $i < $name_and_age_count; $i++){
+                $culm_var += $name_and_age[$i]["Age"];
+            }
+
+            $average_age = $culm_var / $name_and_age_count;
+
+            echo "Average age is: " .round($average_age, 1);
+            
         ?>
 
     </body>
