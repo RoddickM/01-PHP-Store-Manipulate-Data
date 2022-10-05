@@ -44,17 +44,16 @@
             }
 
             $culm_var = 0;
-            $name_and_age_count = count($name_and_age);
 
             echo "<br>";
 
-            for($i =2; $i < $name_and_age_count; $i++){
-                $culm_var += $name_and_age[$i]["Age"];
+            for($i = 0; $i < count($name_and_age); $i++) {
+                $culm_var += $name_and_age[$i]['Age'];
             }
-
-            $average_age = $culm_var / $name_and_age_count;
-
+            
+            $average_age = $culm_var / count($name_and_age);
             echo "Average age is: " .round($average_age, 1);
+
             
         ?>
 
