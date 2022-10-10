@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--This is the forms section for entering personal details -->
-        <form action="" method="POST">
+        <form action="admin-view.php" method="POST">
             <fieldset>
                 <legend>Enter your personal details below. Please fill in all the fields.</legend>
                 <p>First Name: <input 
@@ -32,8 +32,6 @@
                 value="<?php if (isset($_POST['tel_num'])) echo $_POST['tel_num']; ?>"></p>
             </fieldset>
 
-            <p><input type="submit"></p>
-
             <fieldset>
                 <legend>Choose on of the following T-Level courses.</legend>
                 <input type="radio" id="dpdd" name="fav_language" value="DPDD">
@@ -54,13 +52,28 @@
                 <label for="advanced">Advanced</label>
             </fieldset>
 
+            <fieldset>
+                <legend>If yo have any comments for the enrollment, please type below.</legend>
+                <textarea rows="20" cols="40" name="comment"></textarea>
+
+                <?php
+                 echo '
+                 <form action="admin-view.php" method="POST">
+                    <input type="hidden" name="user" value="'.$_POST['f_name'].'">
+                 </form>
+                 <p><input type="submit" href=""></p>
+                 ';
+            ?>
+
+            </fieldset>
+
         </form>
 
         
         
         <?php
-            date_default_timezone_set('UTC');
-            $time = date('H:i, F j, Y');
+
+           
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 #Create array for error messages:
@@ -110,6 +123,14 @@
                 }
                 else {
                     $tel_num = trim($_POST['tel_num']);
+                }
+
+                #Comment box validation
+                if(empty($_POST['comment'])) {
+                    $errors[] = 'Comment';
+                }
+                else {
+                    $tel_num = trim($_POST['comment']);
                 }
 
                 #Write error messages or confirm successful form submission
