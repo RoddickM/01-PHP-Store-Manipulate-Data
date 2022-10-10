@@ -8,6 +8,7 @@
     <body>
         <!--This is the forms section for entering personal details -->
         <form action="admin-view.php" method="POST">
+            <!-- Enter user's details -->
             <fieldset>
                 <legend>Enter your personal details below. Please fill in all the fields.</legend>
                 <p>First Name: <input 
@@ -32,23 +33,24 @@
                 value="<?php if (isset($_POST['tel_num'])) echo $_POST['tel_num']; ?>"></p>
             </fieldset>
 
+            <!-- Choosing the T-LEVEL course -->
             <fieldset>
                 <legend>Choose on of the following T-Level courses.</legend>
-                <input type="radio" id="dpdd" name="fav_language" value="DPDD">
+                <input type="radio" id="dpdd" name="fav_course" value="DPDD">
                 <label for="dpdd">Digital Production Design and Development</label><br>
-                <input type="radio" id="dbs" name="fav_language" value="DBS">
+                <input type="radio" id="dbs" name="fav_course" value="DBS">
                 <label for="dbs">Digital Business Services</label><br>
-                <input type="radio" id="dss" name="fav_language" value="DSS">
+                <input type="radio" id="dss" name="fav_course" value="DSS">
                 <label for="dss">Digital Support Services</label>
             </fieldset>
-
+            <!-- Choosing the level of the course -->
             <fieldset>
                 <legend>Choose the level of the course you want to be in.</legend>
-                <input type="radio" id="beginner" name="fav_language" value="beginner">
+                <input type="radio" id="beginner" name="level" value="beginner">
                 <label for="beginner">Beginner</label><br>
-                <input type="radio" id="intermediate" name="fav_language" value="intermediate">
+                <input type="radio" id="intermediate" name="level" value="intermediate">
                 <label for="intermediate">Intermediate</label><br>
-                <input type="radio" id="advanced" name="fav_language" value="advanced">
+                <input type="radio" id="advanced" name="level" value="advanced">
                 <label for="advanced">Advanced</label>
             </fieldset>
 
@@ -62,6 +64,7 @@
                     <input type="hidden" name="user" value="'.$_POST['f_name'].'">
                  </form>
                  <p><input type="submit" href=""></p>
+                 
                  ';
             ?>
 
