@@ -1,0 +1,64 @@
+/* (A) WHOLE PAGE */
+body {
+    font-family: arial, sans-serif;
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+   }
+
+   #products { width: 60%; }
+   #cart { width: 40%; }
+   button {
+    border: 0;
+    padding: 10px;
+    background: #765AAF;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+   }
+   /* (B) PRODUCTS */
+   #products {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
+   }
+   .pCell {
+    background: #765AAF;
+    border: 1px solid #eee;
+
+   }
+   .pTxt { padding: 10px; color: #fff; }
+   .pName { font-size: 26px; }
+   .pPrice { font-size: 16px; }
+   .pImg { width: 100%; }
+   .pAdd { width: 100%; }
+   /* (C) CART */
+   #cart { padding: 10px; }
+   .cRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+   }
+   .cRow:nth-child(odd) { background: #eee; }
+   .cDel, .cQty, .cName { font-size: 18px; }
+   .cDel, .cName { padding: 10px; }
+   .cName { flex-grow: 1; }
+   .cQty {
+    width: 50px;
+
+    padding: 3px;
+    margin-right: 5px;
+   }
+   .cTotal {
+    font-weight: bold;
+    padding: 10px;
+    background: #ffdcdc;
+   }
+   .cOut { background: #136c8f; }
+   .cOut, .cNuke {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+   }
