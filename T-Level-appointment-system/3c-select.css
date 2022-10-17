@@ -1,0 +1,69 @@
+/* (A) WHOLE PAGE */
+* {
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #765AAF;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://www.wmc.ac.uk/images/banners/pages/T_Levels_banner_3.png");
+    background-repeat: repeat-y;
+}
+
+
+/* (B) SELECT APPOINTMENT DATE/SLOT */
+#select {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#select th, #select td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #d7d7d7;
+}
+
+#select th {
+    font-weight: 700;
+    color: #fff;
+    background: #765AAF;
+}
+
+#select td { background: #fff; }
+
+#select td.booked {
+    color: #b1b1b1;
+    background: #f3f3f3;}
+
+#select td.selected { background: #765AAF; }
+
+/* (C) CONFIRMATION FORM */
+#confirm {
+    display: flex;
+    padding: 10px;
+    background: #e1e1e1;
+}
+
+#confirm input[type=text] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 0;
+}
+
+#confirm input[type=text]:focus {
+    outline-width: 0;
+}
+
+#confirm input[type=submit] {
+    padding: 10px 20px;
+    border: 0;
+    color: #fff;
+    background: #2460ab;
+    cursor: pointer;
+}
+
+#confirm input[type=submit]:disabled { background: #9d9d9d; }
