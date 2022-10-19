@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--This is the forms section for entering personal details -->
-        <form action="admin-view.php" method="POST">
+        <form action="index.php" method="POST">
             <!-- Enter user's details -->
             <fieldset>
                 <legend>Enter your personal details below. Please fill in all the fields.</legend>
@@ -36,7 +36,7 @@
             <!-- Choosing the T-LEVEL course -->
             <fieldset>
                 <legend>Choose on of the following T-Level courses.</legend>
-                <input type="radio" id="dpdd" name="fav_course" value="DPDD">
+                <input type="radio" id="dpdd" name="fav_course" value="DPDD <?php if (isset($_POST['fav_course'])) echo $_POST['fav_course']; ?>">
                 <label for="dpdd">Digital Production Design and Development</label><br>
                 <input type="radio" id="dbs" name="fav_course" value="DBS">
                 <label for="dbs">Digital Business Services</label><br>
@@ -46,37 +46,41 @@
             <!-- Choosing the level of the course -->
             <fieldset>
                 <legend>Choose the level of the course you want to be in.</legend>
-                <input type="radio" id="beginner" name="level" value="beginner">
+                <input type="radio" id="beginner" name="level" value="Beginner">
                 <label for="beginner">Beginner</label><br>
-                <input type="radio" id="intermediate" name="level" value="intermediate">
+                <input type="radio" id="intermediate" name="level" value="Intermediate">
                 <label for="intermediate">Intermediate</label><br>
-                <input type="radio" id="advanced" name="level" value="advanced">
+                <input type="radio" id="advanced" name="level" value="Advanced">
                 <label for="advanced">Advanced</label>
             </fieldset>
 
             <fieldset>
-                <legend>If yo have any comments for the enrollment, please type below.</legend>
+                <legend>If you have any comments for the enrollment, please type below.</legend>
                 <textarea rows="20" cols="40" name="comment"></textarea>
-
-                <?php
-                 echo '
-                 <form action="admin-view.php" method="POST">
-                    <input type="hidden" name="user" value="'.$_POST['f_name'].'">
-                 </form>
-                 <p><input type="submit" href=""></p>
-                 
-                 ';
-            ?>
-
             </fieldset>
 
+            <p><input type="submit" href=""></p>
         </form>
 
         
         
         <?php
+            require_once "config.php";
 
-           
+            date_default_timezone_set('UTC');
+            $time = date('H:i, F j, Y');
+            
+
+            $q = 'SHOW TABLES';
+
+            $r = mysqli_query($link, $q);
+
+            if($r){
+                echo "";
+            }
+            else{
+                echo '<p>'.mysqli_erro($link).'</p>';
+            }
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 #Create array for error messages:
@@ -128,6 +132,22 @@
                     $tel_num = trim($_POST['tel_num']);
                 }
 
+                #Course error
+                if(empty($_POST['fav_course'])) {
+                    $errors[] = 'Course';
+                }
+                else {
+                    $tel_num = trim($_POST['fav_course']);
+                }
+
+                #Course level error
+                if(empty($_POST['level'])) {
+                    $errors[] = 'Course level';
+                }
+                else {
+                    $tel_num = trim($_POST['level']);
+                }
+
                 #Comment box validation
                 if(empty($_POST['comment'])) {
                     $errors[] = 'Comment';
@@ -145,10 +165,11 @@
                 }
                 else {
                     echo "Success! Thanks for completing your personal details $f_name!";
+                    $insert_enrollment_query  = "INSERT INTO college_enrollment (first_name, last_name, address, email, phone_number, course_type, course_level, comments) VALUES ('".$_POST["f_name"]."', '".$_POST["l_name"]."', '".$_POST["address"]."', '".$_POST["email"]."', '".$_POST["tel_num"]."', '".$_POST["fav_course"]."', '".$_POST["level"]."', '".$_POST["comment"]."')";
+                    mysqli_query($link, $insert_enrollment_query);
                 }
             }
-
-
+            
         ?>
 
         
