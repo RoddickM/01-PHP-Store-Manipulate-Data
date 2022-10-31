@@ -6,8 +6,13 @@
         <title>College Sign Up</title>
     </head>
     <body>
+        <?php
+            $page_title = 'Enrollment';
+            include('includes/header.html');
+            echo "<h1>Enrollment Form</h1>"
+        ?>
         <!--This is the forms section for entering personal details -->
-        <form action="index.php" method="POST">
+        <form action="enrollment.php" method="POST">
             <!-- Enter user's details -->
             <fieldset>
                 <legend>Enter your personal details below. Please fill in all the fields.</legend>
@@ -59,7 +64,7 @@
                 <textarea rows="20" cols="40" name="comment"></textarea>
             </fieldset>
 
-            <p><input type="submit" href=""></p>
+            <p><input type="submit"></p>
         </form>
 
         

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+
+        <h1>Login</h1>
+        <form action = "login_action.php" method = "POST">
+            <p>
+                Email Address: <input type = "text" name = "email">
+            </p>
+            <p>
+                Password: <input type = "password" name = "pass">
+                Confirm Password: <input type = "password" name = "pass2" value = "<?php if (isset($_POST['pass2'])) echo$_POST['pass2'];?>">
+            </p>
+            <p><input type = "submit" value = "Login"></p>
+            <br>
+            <p>No account?  Please <a href = "register.php">register</a></p>
+        </form>
