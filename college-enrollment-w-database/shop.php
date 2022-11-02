@@ -1,3 +1,19 @@
+<style>
+    button {
+        background-color: #765AAF;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        }
+            
+    button:hover {
+        opacity: 0.8;
+        }
+</style>
+
 <?php
     #Allow access to session data
     session_start();
@@ -13,8 +29,10 @@
     $page_title = 'Shop';
     include('includes/header.html');
 
+    echo '<h1>Shop</h1>';
+
     #Open the database connection
-    require_once "../config_db.php";
+    require_once "config.php";
 
     #Retrieve all items from the database or show default message
     $q = "SELECT * FROM shop";
@@ -28,9 +46,9 @@
             echo'<td><strong>'.$row['item_name'].
             '</strong><br>'.$row['item_desc'].
             '<br><img src='.$row['item_img'].
-            '><br>£'.$row['item_price'].
-            '<br><a href="added.php?id='.$row['item_id'].
-            '">Add to Cart</a></td>';
+            '><br><strong>£'.$row['item_price'].
+            '</strong><br><a href="added.php?id='.$row['item_id'].
+            '"><button>Add to Cart</button></a></td>';
         }
         echo'</tr></table>';
         mysqli_close($link);
@@ -39,12 +57,6 @@
     {
         echo'<p>There are currently no items in this shop.</p>';
     }
-
-    #Hyperlinks to other pages on the website
-    echo'<p><a href="cart.php">View Cart</a> |
-    <a href="forum.php">View Forum</a> |
-    <a href="home.php">Home</a> |
-    <a href="logout.php">Logout</a></p>';
 
     #Include the footer
     include('includes/footer.html');

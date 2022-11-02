@@ -43,7 +43,7 @@
     if(!empty($_SESSION['cart']))
     {
         #Open the database connection
-        require_once "../config_db.php";
+        require_once "config.php";
 
         #Retrieve data from the "shop" database for all associated items in the shopping cart
         $q = "SELECT * FROM shop WHERE item_id IN (";
@@ -91,11 +91,9 @@
     }
 
     #Hyperlinks to other pages on the website
-    echo'<p><a href="shop.php">Shop</a> |
-    <a href="checkout.php?total='.$total.'">Checkout</a> |
-    <a href="forum.php">Forum</a> |
-    <a href="home.php">Home</a> |
-    <a href="logout.php">Logout</a></p>';
+    echo'<p>
+    <a href="checkout.php?total='.$total.'">Checkout</a>';
+  
 
     #Include the footer
     include('includes/footer.html');

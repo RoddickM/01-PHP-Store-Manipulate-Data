@@ -175,6 +175,7 @@
                 }
             }
             
+            include('includes/footer.html')
         ?>
 
         
