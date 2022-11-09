@@ -32,7 +32,7 @@
     echo '<h1>Shop</h1>';
 
     #Open the database connection
-    require_once "config.php";
+    require_once "../config.php";
 
     #Retrieve all items from the database or show default message
     $q = "SELECT * FROM shop";

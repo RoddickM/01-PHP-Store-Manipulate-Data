@@ -8,5 +8,6 @@ CREATE TABLE IF NOT EXISTS college_enrollment
     phone_number INT NOT NULL UNIQUE,
     course_type VARCHAR(25) NOT NULL,
     course_level VARCHAR(25) NOT NULL,
-    comments VARCHAR(200) NOT NULL,
+    comments VARCHAR(200),
+    date_submitted DATE NOT NULL,
 );

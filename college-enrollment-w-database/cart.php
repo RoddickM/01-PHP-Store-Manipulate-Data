@@ -43,7 +43,7 @@
     if(!empty($_SESSION['cart']))
     {
         #Open the database connection
-        require_once "config.php";
+        require_once "../config.php";
 
         #Retrieve data from the "shop" database for all associated items in the shopping cart
         $q = "SELECT * FROM shop WHERE item_id IN (";

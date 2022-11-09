@@ -4,10 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <title>College Sign Up</title>
+        <link rel ="stylesheet" href ="css/enrollment_page.css">
     </head>
     <body>
         <?php
-            $page_title = 'Enrollment';
             include('includes/header.html');
             echo "<h1>Enrollment Form</h1>"
         ?>
@@ -16,61 +16,82 @@
             <!-- Enter user's details -->
             <fieldset>
                 <legend>Enter your personal details below. Please fill in all the fields.</legend>
-                <p>First Name: <input 
+                <label>First Name: </label>
+                <input 
                 type="text" 
                 name="f_name" 
-                value="<?php if (isset($_POST['f_name'])) echo $_POST['f_name']; ?>"></p>
-                <p>Last Name: <input 
+                value="<?php if (isset($_POST['f_name'])) echo $_POST['f_name']; ?>" required>
+
+                <label>Last Name: </label>
+                <input 
                 type="text" 
                 name="l_name"
-                value="<?php if (isset($_POST['l_name'])) echo $_POST['l_name']; ?>"></p>
-                <p>Address: <input 
+                value="<?php if (isset($_POST['l_name'])) echo $_POST['l_name']; ?>" required>
+
+                <label>Address: </label>
+                <input 
                 type="text" 
                 name="address"
-                value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>"></p>
-                <p>Email: <input 
+                value="<?php if (isset($_POST['address'])) echo $_POST['address']; ?>" required>
+                
+                <label>Email: </label>
+                <input 
                 type="text" 
                 name="email"
-                value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
-                <p>Telephone Number: <input 
+                value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required>
+
+                <label>Telephone Number: </label>
+                <input 
                 type="text" 
                 name="tel_num"
-                value="<?php if (isset($_POST['tel_num'])) echo $_POST['tel_num']; ?>"></p>
+                value="<?php if (isset($_POST['tel_num'])) echo $_POST['tel_num']; ?>" required>
             </fieldset>
 
             <!-- Choosing the T-LEVEL course -->
             <fieldset>
                 <legend>Choose on of the following T-Level courses.</legend>
-                <input type="radio" id="dpdd" name="fav_course" value="DPDD <?php if (isset($_POST['fav_course'])) echo $_POST['fav_course']; ?>">
-                <label for="dpdd">Digital Production Design and Development</label><br>
-                <input type="radio" id="dbs" name="fav_course" value="DBS">
-                <label for="dbs">Digital Business Services</label><br>
-                <input type="radio" id="dss" name="fav_course" value="DSS">
-                <label for="dss">Digital Support Services</label>
+                <label class="radio-container">Digital Production Design and Development
+                <input type="radio" id="dpdd" name="fav_course" value="DPDD" checked="checked" required>
+                <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">Digital Business Services
+                <input type="radio" id="dbs" name="fav_course" value="DBS" required>
+                <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">Digital Support Services
+                <input type="radio" id="dss" name="fav_course" value="DSS" required>
+                <span class="checkmark"></span>
+                </label>
             </fieldset>
             <!-- Choosing the level of the course -->
             <fieldset>
                 <legend>Choose the level of the course you want to be in.</legend>
-                <input type="radio" id="beginner" name="level" value="Beginner">
-                <label for="beginner">Beginner</label><br>
-                <input type="radio" id="intermediate" name="level" value="Intermediate">
-                <label for="intermediate">Intermediate</label><br>
-                <input type="radio" id="advanced" name="level" value="Advanced">
-                <label for="advanced">Advanced</label>
+                <label class="radio-container">Beginner
+                <input type="radio" id="beginner" name="level" value="Beginner" checked="checked" required>
+                <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">Intermediate
+                <input type="radio" id="intermediate" name="level" value="Intermediate" required>
+                <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">Advanced
+                <input type="radio" id="advanced" name="level" value="Advanced" required>
+                <span class="checkmark"></span>
+                </label>
             </fieldset>
 
             <fieldset>
                 <legend>If you have any comments for the enrollment, please type below.</legend>
-                <textarea rows="20" cols="40" name="comment"></textarea>
+                <textarea name="comment" class="comment"></textarea>
             </fieldset>
 
-            <p><input type="submit"></p>
+            <button type="submit">Submit</button>
         </form>
 
         
         
         <?php
-            require_once "config.php";
+            require_once "../config.php";
 
             date_default_timezone_set('UTC');
             $time = date('H:i, F j, Y');
@@ -94,86 +115,25 @@
                 #add to the errors array for omissions
 
                 #First name error
-                if(empty($_POST['f_name'])) {
-                    $errors[] = 'First name';
-                }
-                else {
                     $f_name = trim($_POST['f_name']);
-                }
-
-
                 #Last name error
-                if(empty($_POST['l_name'])) {
-                    $errors[] = 'Last name';
-                }
-                else {
                     $l_name = trim($_POST['l_name']);
-                }
-
-
                 #Adress error
-                if(empty($_POST['address'])) {
-                    $errors[] = 'Address';
-                }
-                else {
                     $address = trim($_POST['address']);
-                }
-
-
                 #Email error
-                if(empty($_POST['email'])) {
-                    $errors[] = 'Email';
-                }
-                else {
                     $email = trim($_POST['email']);
-                }
-
-
                 #Telephone number error
-                if(empty($_POST['tel_num'])) {
-                    $errors[] = 'Telephone number';
-                }
-                else {
                     $tel_num = trim($_POST['tel_num']);
-                }
-
                 #Course error
-                if(empty($_POST['fav_course'])) {
-                    $errors[] = 'Course';
-                }
-                else {
                     $tel_num = trim($_POST['fav_course']);
-                }
-
                 #Course level error
-                if(empty($_POST['level'])) {
-                    $errors[] = 'Course level';
-                }
-                else {
                     $tel_num = trim($_POST['level']);
-                }
-
-                #Comment box validation
-                if(empty($_POST['comment'])) {
-                    $errors[] = 'Comment';
-                }
-                else {
-                    $tel_num = trim($_POST['comment']);
-                }
-
-                #Write error messages or confirm successful form submission
-                if(!empty($errors)) {
-                    echo 'Error, please enter your ';
-                    foreach ($errors as $msg) {
-                        echo "-$msg ";
-                    }
-                }
-                else {
+                #Submit query to database
                     echo "Success! Thanks for completing your personal details $f_name!";
-                    $insert_enrollment_query  = "INSERT INTO college_enrollment (first_name, last_name, address, email, phone_number, course_type, course_level, comments) VALUES ('".$_POST["f_name"]."', '".$_POST["l_name"]."', '".$_POST["address"]."', '".$_POST["email"]."', '".$_POST["tel_num"]."', '".$_POST["fav_course"]."', '".$_POST["level"]."', '".$_POST["comment"]."')";
+                    $insert_enrollment_query  = "INSERT INTO college_enrollment (first_name, last_name, address, email, phone_number, course_type, course_level, comments, date_submitted) VALUES ('".$_POST["f_name"]."', '".$_POST["l_name"]."', '".$_POST["address"]."', '".$_POST["email"]."', '".$_POST["tel_num"]."', '".$_POST["fav_course"]."', '".$_POST["level"]."', '".$_POST["comment"]."', '".$time."')";
                     mysqli_query($link, $insert_enrollment_query);
                 }
-            }
+            
             
             include('includes/footer.html')
         ?>

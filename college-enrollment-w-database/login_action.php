@@ -3,7 +3,7 @@
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
     #Opens the database connection
-    require_once "config.php";
+    require_once "../config.php";
     #Create a connection to ensure login tools are available
     require_once "login_tools.php";
 

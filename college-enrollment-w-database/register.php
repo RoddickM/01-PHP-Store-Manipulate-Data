@@ -10,7 +10,7 @@
     {
         #Opens the database connection and creates an array to store
         #error messages
-        require_once "config.php";
+        require_once "../config.php";
         $errors = array();
 
         #Stores an error message if the first name field remains empty,

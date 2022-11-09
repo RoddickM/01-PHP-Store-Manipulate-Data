@@ -17,7 +17,7 @@
     if(isset($_GET['id'])) $id = $_GET['id'];
 
     #Open the database connection
-    require_once "config.php";
+    require_once "../config.php";
 
     #Retrieve the selected items from the database
     $q = "SELECT * FROM shop WHERE item_id = $id";
