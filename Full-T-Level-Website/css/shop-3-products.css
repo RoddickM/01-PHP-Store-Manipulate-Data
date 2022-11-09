@@ -119,7 +119,7 @@ border-bottom:none;
 #mainPicture
 {
 clear:both;
-width:670px;
+width:650px;
 height:345px;
 background-color:#000000;
 }
@@ -127,7 +127,7 @@ background-color:#000000;
 #mainPicture .picture
 {
 position:relative;
-width:650px;
+width:630px;
 height:325px;
 top:10px;
 margin-left:10px;

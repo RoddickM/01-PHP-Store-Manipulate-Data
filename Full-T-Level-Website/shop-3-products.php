@@ -9,16 +9,15 @@
         
         <div id="page">
             <div class="topNaviagationLink"><a href="index.html">Home</a></div>
-            <div class="topNaviagationLink"><a href="#">About</a></div>
+            <div class="topNaviagationLink"><a href="about.html">About</a></div>
             <div class="topNaviagationLink"><a href="shop-3-products.php">Shop</a></div>
             <div class="topNaviagationLink"><a href="booking-3a-select.php">Tutor Booking</a></div>
-            <div class="topNaviagationLink"><a href="#">Contact</a></div>
-            <div class="topNaviagationLink"><a href="#">Log In</a></div>
+            <div class="topNaviagationLink"><a href="contact.html">Contact</a></div>
+            <div class="topNaviagationLink"><a href="login-form.html">Log In</a></div>
         </div>
 
         <div id="mainPicture">
     	    <div class="picture">
-
             </div>
         </div>
         <div class="contentBox">
