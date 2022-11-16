@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <head>
     <meta charset="UTF-8">
+    <script src="../js-validation/register_validation.js"></script>
     <style>
         form {border: 3px solid #f1f1f1;}
         
@@ -64,7 +65,7 @@
     
 
         <h1>Register</h1>
-            <form action = "register.php" method = "POST">
+            <form action = "register.php" onsubmit="JavaScript:validate" method = "POST">
             <div class="container">
                 <label for="fname">FIRST NAME</label>
                 <input type = "text" name = "first_name" value = "<?php if(isset($_POST['first_name'])) echo$_POST['first_name'];?>" placeholder="Enter First Name" required>
