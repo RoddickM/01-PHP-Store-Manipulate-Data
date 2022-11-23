@@ -89,3 +89,42 @@ INSERT INTO car_rental_details (car_rental_id, rental_daily_cost, loan_date, ret
 (7, 50, 2021-05-05, 2028-05-05, TRUE),
 (8, 50, 2021-05-05, 2028-05-05, TRUE),
 (9, 50, 2021-05-05, 2028-05-05, FALSE)
+
+UPDATE client SET date_of_birth='2004-01-01'
+UPDATE car_rental_details SET loan_date='2005-01-01'
+UPDATE car_rental_details SET return_date='2022-01-01'
+
+UPDATE car_rental_details SET return_date=DATE_ADD(return_date, INTERVAL -3 DAY)
+
+DELETE FROM `car_details` WHERE `car_details_ID` = 0;
+INSERT INTO car_details (car_details_ID, car_regional_number, car_make, car_manufacturer_code, car_manufacturer_name, model_code, model_name) VALUES
+(0, 1234, "Ord", 2353, "Ford", 1332, "Ord")
+
+DELETE FROM `car_details` WHERE `car_details_ID` = 9;
+
+SELECT car_make FROM 'car_details'
+
+SELECT model_name FROM car_details
+
+SELECT model_name, car_rental_details.rental_daily_cost 
+FROM car_details 
+INNER JOIN car_rental_details 
+ON car_details.car_details_ID = car_rental_details.car_rental_id
+
+SELECT model_name, car_rental_details.rental_daily_cost 
+FROM car_details 
+INNER JOIN car_rental_details 
+ON car_details.car_details_ID = car_rental_details.car_rental_id
+ORDER BY car_rental_details.rental_daily_cost
+
+SELECT model_name, car_rental_details.rental_daily_cost 
+FROM car_details 
+INNER JOIN car_rental_details 
+ON car_details.car_details_ID = car_rental_details.car_rental_id
+ORDER BY car_rental_details.rental_daily_cost DESC
+
+SELECT model_name, car_rental_details.rental_daily_cost 
+FROM car_details 
+INNER JOIN car_rental_details 
+ON car_details.car_details_ID = car_rental_details.car_rental_id
+WHERE car_rental_details.rental_daily_cost < 100
