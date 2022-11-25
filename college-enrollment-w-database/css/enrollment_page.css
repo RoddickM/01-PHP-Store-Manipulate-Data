@@ -1,5 +1,7 @@
-form {border: 3px solid #f1f1f1;}
-        
+/* This  css script is made to style enrollment.php */
+
+
+/* Creates a better border for the text box */
 input[type=text], input[type=password] {
           width: 100%;
           padding: 12px 20px;
@@ -8,7 +10,8 @@ input[type=text], input[type=password] {
           border: 1px solid #ccc;
           box-sizing: border-box;
         }
-        
+
+/* Makes the colour of the submit button match the TMC purple colour while also mkae it larger */
 button {
           background-color: #765AAF;
           color: white;
@@ -18,31 +21,18 @@ button {
           cursor: pointer;
           width: 100%;
         }
-        
+
+/* Changes the colour of the button when it is hovered over */
 button:hover {
           opacity: 0.8;
         }
-        
-.cancelbtn {
-          width: auto;
-          padding: 10px 18px;
-          background-color: #f44336;
-        }
-        
-.imgcontainer {
-          text-align: center;
-          margin: 24px 0 12px 0;
-        }
-        
+
+/* Adds padding to the container */
 .container {
           padding: 16px;
         }
-        
-span.psw {
-          float: right;
-          padding-top: 16px;
-        }
 
+/* Styles the text of the readio buttons to make them looks bigger */
 .radio-container {
     display: block;
     position: relative;
@@ -106,6 +96,7 @@ span.psw {
       background: white;
   }
 
+  /* styles the comment box */
   .comment{
     width: 40%;
     height: 100px;
