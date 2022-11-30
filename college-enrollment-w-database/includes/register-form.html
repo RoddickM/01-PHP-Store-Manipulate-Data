@@ -31,6 +31,38 @@
         .container {
           padding: 16px;
         }
+
+        .input-control {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-control input {
+            border: 4px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-size: 12px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .input-control input:focus {
+            outline: 0;
+        }
+
+        .input-control.success input {
+            border-color: #09c372;
+        }
+
+        .input-control.error input {
+            border-color: #ff3860;
+        }
+
+        .input-control .error {
+            color: #ff3860;
+            font-size: 15px;
+            height: 25px;
+        }
         
     </style>
     <script defer src="includes/register_validation.js"></script>
@@ -40,24 +72,29 @@
     
 
         <h1>Register</h1>
-            <form action = "/" id="form" method = "POST">
+            <form id="form" action = "../register.php" method = "POST">
             <div class="container">
+
                 <div class="input-control">
-                  <label for="fname">FIRST NAME</label>
-                  <input type = "text" id="first_name" name = "first_name" value = "<?php if(isset($_POST['first_name'])) echo$_POST['first_name'];?>" placeholder="Enter First Name" required>
+                  <label for="first_name">FIRST NAME</label>
+                  <input type = "text" id="first_name" name = "first_name" value = "<?php if(isset($_POST['first_name'])) echo$_POST['first_name'];?>" placeholder="Enter First Name">
                   <div class="error"></div>
                 </div>
-                <label for="lname">LAST NAME</label>
-                <input type = "text" name = "last_name" value = "<?php if(isset($_POST['last_name'])) echo$_POST['last_name'];?>" placeholder="Enter Last Name" required>
 
-                <label for="email">EMAIL</label>
+                <div class="input-control">
+                  <label for="last_name">LAST NAME</label>
+                  <input type = "text" id="last_name" name = "last_name" value = "<?php if(isset($_POST['last_name'])) echo$_POST['last_name'];?>" placeholder="Enter Last Name">
+                  <div class="error"></div>
+                </div>
+
+                <!-- <label for="email">EMAIL</label>
                 <input type = "email" name = "email" value = "<?php if(isset($_POST['email'])) echo$_POST['email'];?>" placeholder="Enter Email" required>
 
                 <label for="pass">PASSWORD</label>
                 <input type = "password" name = "pass1" value = "<?php if(isset($_POST['pass1'])) echo$_POST['pass1'];?>" placeholder="Enter Password" required>
 
                 <label for="conf_pass">CONFIRM PASSWORD</label>
-                <input type = "password" name = "pass2" value = "<?php if(isset($_POST['pass2'])) echo$_POST['pass2'];?>" placeholder="Confirm Password" required>
+                <input type = "password" name = "pass2" value = "<?php if(isset($_POST['pass2'])) echo$_POST['pass2'];?>" placeholder="Confirm Password" required> -->
             </div>
                 
                 
