@@ -60,7 +60,7 @@
 
         .input-control .error {
             color: #ff3860;
-            font-size: 15px;
+            font-size: 100px;
             height: 25px;
         }
         
@@ -87,14 +87,23 @@
                   <div class="error"></div>
                 </div>
 
-                <!-- <label for="email">EMAIL</label>
-                <input type = "email" name = "email" value = "<?php if(isset($_POST['email'])) echo$_POST['email'];?>" placeholder="Enter Email" required>
+                <div class="input-control">
+                  <label for="email">EMAIL</label>
+                  <input type = "text" id="email" name = "email" value = "<?php if(isset($_POST['email'])) echo$_POST['email'];?>" placeholder="Enter Email">
+                  <div class="error"></div>
+                </div>
+                
+                <div class="input-control">
+                  <label for="pass">PASSWORD</label>
+                  <input type = "password" id="pass" name = "pass1" value = "<?php if(isset($_POST['pass1'])) echo$_POST['pass1'];?>" placeholder="Enter Password">
+                  <div class="error"></div>
+                </div>
 
-                <label for="pass">PASSWORD</label>
-                <input type = "password" name = "pass1" value = "<?php if(isset($_POST['pass1'])) echo$_POST['pass1'];?>" placeholder="Enter Password" required>
-
-                <label for="conf_pass">CONFIRM PASSWORD</label>
-                <input type = "password" name = "pass2" value = "<?php if(isset($_POST['pass2'])) echo$_POST['pass2'];?>" placeholder="Confirm Password" required> -->
+                <div class="input-control">
+                  <label for="conf_pass">CONFIRM PASSWORD</label>
+                  <input type = "password" id="pass2" name = "pass2" value = "<?php if(isset($_POST['pass2'])) echo$_POST['pass2'];?>" placeholder="Confirm Password" >
+                  <div class="error"></div>
+                </div>
             </div>
                 
                 

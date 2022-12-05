@@ -12,57 +12,13 @@
         #error messages
         require_once "../config.php";
         $errors = array();
+        $fn = mysqli_real_escape_string($link, trim($_POST['first_name']));
 
-        #Stores an error message if the first name field remains empty,
-        #or store its value in a variable
-        if(empty($_POST['first_name']))
-        {
-            $errors[] = 'Enter your first name';
-        }
-        else
-        {
-            $fn = mysqli_real_escape_string($link, trim($_POST['first_name']));
-        }
+        $ln = mysqli_real_escape_string($link, trim($_POST['last_name']));
 
-        #Stores an error message if the last name field remains empty,
-        #or store its value in a variable
-        if(empty($_POST['last_name']))
-        {
-            $errors[] = 'Enter your last name';
-        }
-        else
-        {
-            $ln = mysqli_real_escape_string($link, trim($_POST['last_name']));
-        }
+        $e = mysqli_real_escape_string($link, trim($_POST['email']));
 
-        #Stores an error message if the email field remains empty,
-        #or store its value in a variable
-        if(empty($_POST['email']))
-        {
-            $errors[] = 'Enter your email address';
-        }
-        else
-        {
-            $e = mysqli_real_escape_string($link, trim($_POST['email']));
-        }
-
-        #Stores an error message if password is invalid, or store its value in a
-        #variable
-        if(!empty($_POST['pass1']))
-        {
-            if($_POST['pass1'] != $_POST['pass2'])
-            {
-                $errors[] = 'The passwords do not match';
-            }
-            else
-            {
-                $p = mysqli_real_escape_string($link, trim($_POST['pass1']));
-            }
-        }
-        else
-        {
-            $errors[] = 'Please enter your password';
-        }
+        $p = mysqli_real_escape_string($link, trim($_POST['pass1']));
 
         #Stores an error message if the email account is already registered in
         #the database table
